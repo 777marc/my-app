@@ -13,8 +13,12 @@ interface Response {
   message: string;
 }
 
+interface Headers {
+  xApiKey: string;
+}
+
 const getNutrition = async (item: string) => {
-  const apiKey = process.env.API_KEY;
+  const apiKey: string | undefined = process.env.API_KEY;
   const query = item;
   const url = `https://api.calorieninjas.com/v1/nutrition?query=${query}`;
 
